@@ -1,0 +1,6 @@
+<div class="flex flex-col p-10" *ngIf="yazi!=undefined">
+    <h1 mat-list-item [routerLink]="['/yazi/', yazi._id]" class="text-4xl outline-none">{{ yazi.baslik }}</h1>
+    <small>{{ date(yazi.tarih) }}</small>
+    <p class="mt-10">{{ yazi.icerik }}</p>
+    <a mat-list-item [routerLink]="['/user/', yazi.yazar]" class="self-end">{{ yazi.yazar_adi }} {{ yazi.yazar_soyadi }}</a>
+</div>

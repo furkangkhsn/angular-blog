@@ -1,0 +1,5 @@
+.mat-drawer.mat-drawer-opened {
+    width: 20vw;
+    min-width: 170px;
+    max-width: 300px;
+}

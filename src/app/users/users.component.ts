@@ -1,0 +1,48 @@
+import { Component, OnInit } from '@angular/core';
+import { User } from '../user';
+import { Apollo } from 'apollo-angular';
+
+@Component({
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.css']
+})
+export class UsersComponent implements OnInit {
+  users: User[]
+  constructor(private apollo: Apollo) { }
+
+  ngOnInit() {
+    let query = `
+      query users {
+        users {
+          _id
+          adi
+          soyadi
+          kadi
+          email
+          sifre
+          yetkiler
+        }
+      }
+    `;
+
+    fetch('http://localhost:4000', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify( {
+        query
+      })
+    }).then(r => r.json())
+      .then(data => {
+        this.users = data.data.users;
+        console.log(this.users);
+        
+      })
+
+  
+  }
+
+}
