@@ -1,0 +1,25 @@
+<div class="main h-full flex justify-center items-center">
+    <div class="giris bg-indigo-500 rounded-lg p-5">
+        <form class="flex flex-col text-white">
+            <mat-form-field class="text-white">
+                <input matInput [(ngModel)]="user.adi" class="text-white" name="adi" type="text" placeholder="Adı">
+            </mat-form-field>
+            <mat-form-field class="text-white">
+                <input matInput [(ngModel)]="user.soyadi" class="text-white" name="kadi" type="text" placeholder="Soyadı">
+            </mat-form-field>
+            <mat-form-field class="text-white">
+                <input matInput [(ngModel)]="user.kadi" class="text-white" name="kadi" type="text" placeholder="Kullanıcı Adı">
+            </mat-form-field>
+            <mat-form-field class="text-white">
+                <input matInput [(ngModel)]="user.email" class="text-white" name="email" type="text" placeholder="Email">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="user.sifre" name="sifre" type="password" placeholder="Şifre">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput [(ngModel)]="user.sifret" name="sifret" type="password" placeholder="Şifre Tekrar">
+            </mat-form-field>
+            <button mat-raised-button (click)='kayit()'>Kaydol</button>
+        </form>
+    </div>
+</div>

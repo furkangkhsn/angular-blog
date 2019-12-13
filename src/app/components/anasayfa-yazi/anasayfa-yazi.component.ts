@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Yazi } from "../yazi";
+import { Yazi } from "../../types/yazi";
 
 @Component({
   selector: 'app-anasayfa-yazi',

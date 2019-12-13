@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Yazi } from '../yazi';
+import { Yazi } from '../../types/yazi';
 
 @Component({
   selector: 'app-yazi',

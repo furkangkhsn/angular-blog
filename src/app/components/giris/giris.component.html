@@ -1,0 +1,13 @@
+<div class="main h-full flex justify-center items-center">
+        <div class="giris bg-indigo-500 rounded-lg p-5">
+            <form class="flex flex-col text-white">
+                <mat-form-field class="text-white">
+                    <input matInput [(ngModel)]="user.kadi" class="text-white" name="kadi" type="text" placeholder="Kullanıcı Adı">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <input matInput [(ngModel)]="user.sifre" name="sifre" type="password" placeholder="Şifre">
+                </mat-form-field>
+                <button mat-raised-button (click)='giris()'>Giriş</button>
+            </form>
+        </div>
+    </div>
