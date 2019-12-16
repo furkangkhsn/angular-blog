@@ -17,6 +17,8 @@ export class UserComponent implements OnInit {
       console.log(params);
       
       userId = params['user_id'];
+      console.log(userId);
+      
     });
     
     let query = `

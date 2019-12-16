@@ -5,9 +5,50 @@
     </button>
     <h1>Blog</h1>
     <span class="flex-1"></span>
-    <div>
+    <div *ngIf="!isLoggedIn()">
       <a mat-button [routerLink]="'/giris'"> Giriş </a>
       <a mat-button [routerLink]="'/kayit'"> Kaydol </a>
+    </div>
+    <div *ngIf="isLoggedIn()">
+      <div class="dropdown" class="flex flex-col">
+        <img class="rounded-full w-1/5 self-end mr-8 dropbtn" src="https://res.cloudinary.com/muhammederdem/image/upload/v1537638518/Ba%C5%9Fl%C4%B1ks%C4%B1z-1.jpg"
+                    alt="profile card" (click)='toggleActive()'>
+      </div>
+      <div class="dropdown-content" [ngClass]="{active: active}">
+        <div class="wrapper" *ngIf="user">
+          <div class="profile-card js-profile-card">
+              <div class="profile-card__img">
+                  <img src="https://res.cloudinary.com/muhammederdem/image/upload/v1537638518/Ba%C5%9Fl%C4%B1ks%C4%B1z-1.jpg"
+                      alt="profile card">
+              </div>
+  
+              <div class="profile-card__cnt js-profile-cnt">
+                  <a class="profile-card__name" [routerLink]="['/user/', user._id]">{{ user.adi }} {{user.soyadi }}</a>
+                  <div class="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div>
+                  <div class="profile-card-inf">
+                      <a class="profile-card-inf__item" [routerLink]="['/user/', user._id, 'takipciler']" >
+                          <div class="profile-card-inf__title">{{ user.takipci != undefined ? user.takipci.length : 0 }}</div>
+                          <div class="profile-card-inf__txt">Followers</div>
+                      </a>
+                      <div class="profile-card-inf__item">
+                          <div class="profile-card-inf__title">{{ user.takip != undefined ? user.takip.length : 0 }}</div>
+                          <div class="profile-card-inf__txt">Following</div>
+                      </div>
+                      <div class="profile-card-inf__item">
+                          <div class="profile-card-inf__title">{{ user.yazi_adeti || 0 }}</div>
+                          <div class="profile-card-inf__txt">Articles</div>
+                      </div>
+                  </div>
+  
+                  <div class="profile-card-ctr">
+                      <button class="profile-card__button button--orange">Profil</button>
+                      <button class="profile-card__button button--blue" (click)='cikis()'>Çıkış</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+        
+      </div>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

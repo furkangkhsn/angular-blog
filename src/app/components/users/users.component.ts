@@ -10,8 +10,14 @@ import { Apollo } from 'apollo-angular';
 export class UsersComponent implements OnInit {
   users: User[]
   constructor(private apollo: Apollo) { }
-
+  isLoggedIn() {
+    return localStorage.getItem('user-token');
+  }
+  loggedInUser = null;
   ngOnInit() {
+    if(this.isLoggedIn()) {
+      this.loggedInUser = JSON.parse(localStorage.getItem('user'));
+    }
     let query = `
       query users {
         users {

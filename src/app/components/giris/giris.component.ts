@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  MatSnackBar } from '@angular/material';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-giris',
@@ -12,9 +13,14 @@ export class GirisComponent implements OnInit {
     sifre: ''
   }
 
-  constructor(private _snackBar: MatSnackBar) { }
-
+  constructor(private _snackBar: MatSnackBar, private router: Router) { }
+  isLoggedIn() {
+    return localStorage.getItem('user-token');
+  }
   ngOnInit() {
+    if(this.isLoggedIn()) {
+      this.router.navigate(['/']);
+    }
   }
 
   giris() {
@@ -61,6 +67,7 @@ export class GirisComponent implements OnInit {
       if(res.data.giris.tip) {
         localStorage.setItem('user-token', res.data.giris.sonuc);
         localStorage.setItem('user', JSON.stringify(res.data.giris.user));
+        this.router.navigate(['/']);
       } else this._snackBar.open(res.data.giris.sonuc, 'x', { duration: 2000 });
     })
   }

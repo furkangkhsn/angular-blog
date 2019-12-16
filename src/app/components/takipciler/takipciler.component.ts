@@ -16,7 +16,8 @@ export class TakipcilerComponent implements OnInit {
     this.route.paramMap.subscribe(({params}) => {
       console.log(params);
       user_id = params['user_id'];
-
+      console.log(user_id);
+      
       let query = `
         query TakipciByUserId($id: ID!) {
           TakipciByUserId(id: $id) {
